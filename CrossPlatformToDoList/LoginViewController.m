@@ -30,10 +30,6 @@
 
 -(IBAction)loginButtonPressed:(UIButton *)sender {
     
-    // sign OUT process is these 2 lines:
-//    NSError *signOutError;
-//    [[FIRAuth auth] signOut:&signOutError];
-    
     [[FIRAuth auth] signInWithEmail:self.emailTextField.text password:self.passwordTextField.text completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
         
         if (error) {

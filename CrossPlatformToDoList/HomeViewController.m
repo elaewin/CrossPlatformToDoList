@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "LoginViewController.h"
+
 @import FirebaseAuth;
 @import FirebaseDatabase;
 
@@ -25,6 +26,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"TO DO LIST";
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -68,13 +70,26 @@
         
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
-            NSString *todoTitle = todoData[@"title"];
-            NSString *todoContent = todoData[@"content"];
             
-            //for lab, append new todo to alltodos array.
-            NSLog(@"Todo Title: %@ - Content: %@", todoTitle, todoContent);
+            Todo *todo = [[Todo alloc] init];
+            todo.title = todoData[@"title"];
+            todo.content = todoData[@"content"];
+            
+            NSLog(@"Todo Title: %@ - Content: %@", todo.title, todo.content);
+            [allTodos addObject:todo];
         }
     }];
+}
+
+// pragma MARK: Actions
+
+- (IBAction)addButtonPressed:(id)sender {
+}
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    // sign OUT process is these 2 lines:
+        NSError *signOutError;
+        [[FIRAuth auth] signOut:&signOutError];
 }
 
 @end

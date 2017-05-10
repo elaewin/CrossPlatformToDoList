@@ -10,4 +10,13 @@
 
 @implementation WatchToDoDetailController
 
+-(void)awakeWithContext:(id)context {
+    [super awakeWithContext:context];
+    
+    self.todo = context;
+    
+    [self.titleLabel setText:self.todo.title];
+    [self.contentLabel setText:self.todo.content];
+}
+
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <WatchKit/WatchKit.h>
+#import "Todo.h"
 
 @interface WatchToDoDetailController : WKInterfaceController
+
+@property(strong, nonatomic) Todo *todo;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *titleLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *contentLabel;
 
 @end
