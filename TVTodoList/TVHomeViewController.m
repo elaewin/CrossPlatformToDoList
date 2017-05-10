@@ -14,7 +14,6 @@
 
 @interface TVHomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property(strong, nonatomic) NSArray<Todo *> *allTodos;
 
 // MARK: Outlets
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,12 +30,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [FirebaseAPI fetchAllTodos:^(NSArray<Todo *> *allTodos) {
-        NSLog(@"ALL TODOS: %@", allTodos);
-        
-        self.allTodos = allTodos;
-        [self.tableView reloadData];
-    }];
     // Do any additional setup after loading the view.
 }
 

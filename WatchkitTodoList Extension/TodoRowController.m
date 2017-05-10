@@ -10,6 +10,4 @@
 
 @implementation TodoRowController
 
-
-
 @end

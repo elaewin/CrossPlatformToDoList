@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="he1-T7-L4H">
-                                <rect key="frame" x="240" y="195" width="1440" height="540"/>
+                                <rect key="frame" x="240" y="50" width="1440" height="540"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="fC2-jn-egk" detailTextLabel="Uze-eg-lT3" style="IBUITableViewCellStyleSubtitle" id="5TW-jc-PFb">
@@ -70,6 +70,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2201" y="147"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="WEs-xD-SzX">
+            <objects>
+                <viewController storyboardIdentifier="TVSignInViewController" automaticallyAdjustsScrollViewInsets="NO" id="XOC-6I-0B2" customClass="TVSignInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oxm-gB-zam"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ma-16-ZDC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHg-MI-VAv">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcU-jw-weU">
+                                <rect key="frame" x="645" y="230" width="630" height="150"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="125"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email address..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mHT-qZ-8sY">
+                                <rect key="frame" x="240" y="480" width="1440" height="120"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2K-5O-TSc">
+                                <rect key="frame" x="718" y="700" width="484" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="GET TODOS"/>
+                                <connections>
+                                    <action selector="getTodosButtonPressed:" destination="XOC-6I-0B2" eventType="primaryActionTriggered" id="Edr-La-Fdo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mHT-qZ-8sY" firstAttribute="top" secondItem="WcU-jw-weU" secondAttribute="bottom" constant="100" id="Bzg-xY-NnU"/>
+                            <constraint firstItem="f2K-5O-TSc" firstAttribute="centerX" secondItem="mHg-MI-VAv" secondAttribute="centerX" id="F6S-NG-2JR"/>
+                            <constraint firstItem="mHT-qZ-8sY" firstAttribute="centerY" secondItem="mHg-MI-VAv" secondAttribute="centerY" id="RYO-jg-mpl"/>
+                            <constraint firstItem="WcU-jw-weU" firstAttribute="centerX" secondItem="mHg-MI-VAv" secondAttribute="centerX" id="ebX-6Z-1nX"/>
+                            <constraint firstItem="f2K-5O-TSc" firstAttribute="top" secondItem="mHT-qZ-8sY" secondAttribute="bottom" constant="100" id="fLn-t7-gVE"/>
+                            <constraint firstItem="mHT-qZ-8sY" firstAttribute="width" secondItem="mHg-MI-VAv" secondAttribute="width" multiplier="0.75" id="g1D-vx-pNU"/>
+                            <constraint firstItem="mHT-qZ-8sY" firstAttribute="centerX" secondItem="mHg-MI-VAv" secondAttribute="centerX" id="wc8-1R-Ced"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="igO-SK-ruY"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="mHT-qZ-8sY" id="Yma-yc-PK5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KW-4f-mCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4777" y="-1390"/>
         </scene>
         <!--TODO DETAILS-->
         <scene sceneID="bmT-ai-L04">
@@ -123,7 +176,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rC4-oB-tW6"/>
+                        <segue destination="XOC-6I-0B2" kind="relationship" relationship="rootViewController" id="LIc-96-xs3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHt-Hj-fLb" userLabel="First Responder" sceneMemberID="firstResponder"/>

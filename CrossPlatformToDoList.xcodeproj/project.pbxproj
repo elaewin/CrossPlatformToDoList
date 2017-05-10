@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5531060E1EC3C82E00A99865 /* TVSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531060D1EC3C82E00A99865 /* TVSignInViewController.m */; };
 		555C1B0C1EC0DD8600FCED35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B0B1EC0DD8600FCED35 /* main.m */; };
 		555C1B0F1EC0DD8600FCED35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B0E1EC0DD8600FCED35 /* AppDelegate.m */; };
 		555C1B151EC0DD8700FCED35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1B131EC0DD8700FCED35 /* Main.storyboard */; };
@@ -84,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		4582A9F9E00F8417B236C966 /* Pods-CrossPlatformToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossPlatformToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossPlatformToDoList/Pods-CrossPlatformToDoList.debug.xcconfig"; sourceTree = "<group>"; };
+		5531060C1EC3C82E00A99865 /* TVSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVSignInViewController.h; sourceTree = "<group>"; };
+		5531060D1EC3C82E00A99865 /* TVSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVSignInViewController.m; sourceTree = "<group>"; };
 		555C1B071EC0DD8600FCED35 /* CrossPlatformToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossPlatformToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555C1B0B1EC0DD8600FCED35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		555C1B0D1EC0DD8600FCED35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 		555C1B851EC2CC3500FCED35 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5531060C1EC3C82E00A99865 /* TVSignInViewController.h */,
+				5531060D1EC3C82E00A99865 /* TVSignInViewController.m */,
 				555C1B781EC248AF00FCED35 /* TVHomeViewController.h */,
 				555C1B791EC248AF00FCED35 /* TVHomeViewController.m */,
 				555C1B821EC2CBE300FCED35 /* TVDetailViewController.h */,
@@ -597,6 +602,7 @@
 				555C1B7A1EC248AF00FCED35 /* TVHomeViewController.m in Sources */,
 				555C1B841EC2CBE300FCED35 /* TVDetailViewController.m in Sources */,
 				555C1B7B1EC249CB00FCED35 /* Todo.m in Sources */,
+				5531060E1EC3C82E00A99865 /* TVSignInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +899,7 @@
 				555C1B531EC233B200FCED35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		555C1B551EC233B200FCED35 /* Build configuration list for PBXNativeTarget "WatchkitTodoList" */ = {
 			isa = XCConfigurationList;
@@ -901,6 +908,7 @@
 				555C1B571EC233B200FCED35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		555C1B721EC246C800FCED35 /* Build configuration list for PBXNativeTarget "TVTodoList" */ = {
 			isa = XCConfigurationList;
@@ -909,6 +917,7 @@
 				555C1B741EC246C800FCED35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

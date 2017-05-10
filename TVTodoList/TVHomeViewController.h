@@ -10,4 +10,6 @@
 
 @interface TVHomeViewController : UIViewController 
 
+@property(strong, nonatomic) NSArray<Todo *> *allTodos;
+
 @end

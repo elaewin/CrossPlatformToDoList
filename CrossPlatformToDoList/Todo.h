@@ -15,7 +15,10 @@
 @property(strong, nonatomic) NSString *created;
 @property(strong, nonatomic) NSString *dueDate;
 @property(strong, nonatomic) NSNumber *isComplete;
+@property(strong, nonatomic) NSString *user;
 
+-(instancetype)initWithTitle:(NSString *)title andContent:(NSString *)content andEmail:(NSString *)email;
+-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate andEmail:(NSString *)email;
 -(instancetype)initWithDictionary:(NSDictionary *)jsonDictionary;
 
 -(NSString *)formatDate:(NSDate *)date;

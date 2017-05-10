@@ -10,24 +10,25 @@
 
 @implementation Todo
 
--(instancetype)initWithTitle:(NSString *)title andContent:(NSString *)content {
+-(instancetype)initWithTitle:(NSString *)title andContent:(NSString *)content andEmail:(NSString *)email {
     self = [super init];
     
     if (self) {
         _title = title;
         _content = content;
+        _user = email;
     }
     return self;
 }
 
-
--(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate {
+-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate andEmail:(NSString *)email {
     self = [super init];
     
     if (self) {
         _title = title;
         _content = content;
         _dueDate = [self formatDate:dueDate];
+        _user = email;
     }
     return self;
 }
@@ -40,6 +41,7 @@
         _content = jsonDictionary[@"content"];
         _created = [self formatDate:[NSDate date]];
         _isComplete = @0;
+        _user = jsonDictionary[@"user"];
     }
     
     return self;

@@ -71,7 +71,7 @@
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
             
-            Todo *todo = [[Todo alloc] init];
+            Todo *todo = [[Todo alloc] ];
             todo.title = todoData[@"title"];
             todo.content = todoData[@"content"];
             
