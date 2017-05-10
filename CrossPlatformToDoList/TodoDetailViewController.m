@@ -19,9 +19,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)completeButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 
 @end

@@ -14,6 +14,6 @@
 @property(strong, nonatomic) NSString *content;
 @property(strong, nonatomic) NSDate *created;
 @property(strong, nonatomic) NSDate *dueDate;
-@property(nonatomic) BOOL complete;
+@property(strong, nonatomic) NSNumber *isComplete;
 
 @end

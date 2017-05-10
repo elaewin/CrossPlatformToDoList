@@ -9,5 +9,6 @@
 #ifndef Credentials_h
 #define Credentials_h
 
+#define APP_KEY @"Mljj8wVCLPnjionXC58AutYqwiyEVH3Y6chYtjTG"
 
 #endif /* Credentials_h */

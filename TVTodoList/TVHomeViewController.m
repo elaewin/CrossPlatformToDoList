@@ -6,9 +6,11 @@
 //  Copyright © 2017 Erica Winberry. All rights reserved.
 //
 
+#import "FirebaseAPI.h"
+#import "Todo.h"
 #import "TVHomeViewController.h"
 #import "TVDetailViewController.h"
-#import "Todo.h"
+
 
 @interface TVHomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,6 +30,10 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [FirebaseAPI fetchAllTodos:^(NSArray<Todo *> *allTodos) {
+        // come back here and do something.
+    }];
     // Do any additional setup after loading the view.
 }
 

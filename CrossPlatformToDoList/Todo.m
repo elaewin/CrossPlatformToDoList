@@ -10,6 +10,12 @@
 
 @implementation Todo
 
+//-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content createdOn:(NSDate *)date withDueDate:(NSDate *)date andIsComplete:(NSNumber *)completeScore {
+//    
+//    if(self) {
+//        
+//    }
+//}
 
 
 @end

@@ -36,6 +36,7 @@
 		555C1B841EC2CBE300FCED35 /* TVDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B831EC2CBE300FCED35 /* TVDetailViewController.m */; };
 		555C1B891EC2DCD500FCED35 /* CompletedTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B881EC2DCD500FCED35 /* CompletedTodoViewController.m */; };
 		555C1B8C1EC2DD8500FCED35 /* TodoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B8B1EC2DD8500FCED35 /* TodoDetailViewController.m */; };
+		555C1B901EC384BB00FCED35 /* FirebaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B8F1EC384BB00FCED35 /* FirebaseAPI.m */; };
 		9DA1A6F50B8260C50AD7B15A /* libPods-CrossPlatformToDoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF37D044505D625DF2DB3DF /* libPods-CrossPlatformToDoList.a */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,9 @@
 		555C1B881EC2DCD500FCED35 /* CompletedTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTodoViewController.m; sourceTree = "<group>"; };
 		555C1B8A1EC2DD8500FCED35 /* TodoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDetailViewController.h; sourceTree = "<group>"; };
 		555C1B8B1EC2DD8500FCED35 /* TodoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailViewController.m; sourceTree = "<group>"; };
+		555C1B8D1EC382BB00FCED35 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		555C1B8E1EC384BB00FCED35 /* FirebaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseAPI.h; sourceTree = "<group>"; };
+		555C1B8F1EC384BB00FCED35 /* FirebaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseAPI.m; sourceTree = "<group>"; };
 		7C417EC212983C2A6D47D22B /* Pods-CrossPlatformToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossPlatformToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossPlatformToDoList/Pods-CrossPlatformToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		BAF37D044505D625DF2DB3DF /* libPods-CrossPlatformToDoList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrossPlatformToDoList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -273,6 +277,7 @@
 		555C1B621EC246C800FCED35 /* TVTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				555C1B911EC384BF00FCED35 /* Model */,
 				555C1B851EC2CC3500FCED35 /* Controller */,
 				555C1B861EC2CC5500FCED35 /* View */,
 				555C1B631EC246C800FCED35 /* Supporting Files */,
@@ -283,6 +288,7 @@
 		555C1B631EC246C800FCED35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				555C1B8D1EC382BB00FCED35 /* Credentials.h */,
 				555C1B6F1EC246C800FCED35 /* Assets.xcassets */,
 				555C1B711EC246C800FCED35 /* Info.plist */,
 				555C1B661EC246C800FCED35 /* AppDelegate.h */,
@@ -309,6 +315,15 @@
 				555C1B6C1EC246C800FCED35 /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		555C1B911EC384BF00FCED35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				555C1B8E1EC384BB00FCED35 /* FirebaseAPI.h */,
+				555C1B8F1EC384BB00FCED35 /* FirebaseAPI.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		61DC0DAD0CF7A3AB9FB52AD2 /* Pods */ = {
@@ -577,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555C1B681EC246C800FCED35 /* AppDelegate.m in Sources */,
+				555C1B901EC384BB00FCED35 /* FirebaseAPI.m in Sources */,
 				555C1B651EC246C800FCED35 /* main.m in Sources */,
 				555C1B7A1EC248AF00FCED35 /* TVHomeViewController.m in Sources */,
 				555C1B841EC2CBE300FCED35 /* TVDetailViewController.m in Sources */,
