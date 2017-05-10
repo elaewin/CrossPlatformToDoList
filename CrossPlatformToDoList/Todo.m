@@ -10,12 +10,26 @@
 
 @implementation Todo
 
-//-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content createdOn:(NSDate *)date withDueDate:(NSDate *)date andIsComplete:(NSNumber *)completeScore {
-//    
-//    if(self) {
-//        
-//    }
-//}
+-(instancetype)initWithDictionary:(NSDictionary *)jsonDictionary {
+    self = [super init];
+    
+    if(self) {
+        _title = jsonDictionary[@"title"];
+        _content = jsonDictionary[@"content"];
+        _created = [self formatDate:[NSDate date]];
+        _isComplete = @0;
+    }
+    
+    return self;
+}
+
+-(NSString *)formatDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    [formatter setLocale:locale];
+    [formatter setDateFormat:@"MMM d, yyyy"];
+    return [formatter stringFromDate:date];
+}
 
 
 @end

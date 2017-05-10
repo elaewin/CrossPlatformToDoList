@@ -23,7 +23,24 @@
         
         NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
-        NSLog(@"ROOT OBJECT: %@", rootObject);
+//        NSLog(@"ROOT OBJECT: %@", rootObject);
+        
+        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+        
+        // Get all Todos and put them on screen, the key for all dicts in root object is a user, so we just need to values, not the keys.
+        for (NSDictionary *userTodosDictionary in [rootObject allValues]) {
+            NSArray *userTodos = [userTodosDictionary[@"todos"] allValues];
+//            NSLog(@"USER TODOS: %@", userTodos);
+            for (NSDictionary *todoDictionary in userTodos) {
+                Todo *newTodo = [[Todo alloc] initWithDictionary:todoDictionary];
+                
+                [allTodos addObject:newTodo];
+            }
+        }
+        
+        if (completion) {
+            completion(allTodos);
+        }
         
     }] resume];
 }

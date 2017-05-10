@@ -32,26 +32,29 @@
     self.tableView.delegate = self;
     
     [FirebaseAPI fetchAllTodos:^(NSArray<Todo *> *allTodos) {
-        // come back here and do something.
+        NSLog(@"ALL TODOS: %@", allTodos);
+        
+        self.allTodos = allTodos;
+        [self.tableView reloadData];
     }];
     // Do any additional setup after loading the view.
 }
 
--(NSArray<Todo *> *)allTodos {
-    Todo *firstTodo = [[Todo alloc] init];
-    firstTodo.title = @"First Todo";
-    firstTodo.content = @"This is the first Todo!";
-    
-    Todo *secondTodo = [[Todo alloc] init];
-    secondTodo.title = @"Second Todo";
-    secondTodo.content = @"This is a neato Todo!";
-    
-    Todo *thirdTodo = [[Todo alloc] init];
-    thirdTodo.title = @"Third Todo";
-    thirdTodo.content = @"This is another spiffy Todo!";
-    
-    return @[firstTodo, secondTodo, thirdTodo];
-}
+//-(NSArray<Todo *> *)allTodos {
+//    Todo *firstTodo = [[Todo alloc] init];
+//    firstTodo.title = @"First Todo";
+//    firstTodo.content = @"This is the first Todo!";
+//    
+//    Todo *secondTodo = [[Todo alloc] init];
+//    secondTodo.title = @"Second Todo";
+//    secondTodo.content = @"This is a neato Todo!";
+//    
+//    Todo *thirdTodo = [[Todo alloc] init];
+//    thirdTodo.title = @"Third Todo";
+//    thirdTodo.content = @"This is another spiffy Todo!";
+//    
+//    return @[firstTodo, secondTodo, thirdTodo];
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
