@@ -7,13 +7,14 @@
 //
 
 #import "TVHomeViewController.h"
+#import "TVDetailViewController.h"
 #import "Todo.h"
 
 @interface TVHomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property(strong, nonatomic) NSArray<Todo *> *allTodos;
 
-// pragma MARK: Outlets
+// MARK: Outlets
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -26,6 +27,7 @@
     self.title = @"TODO LIST:";
     
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -35,17 +37,29 @@
     firstTodo.content = @"This is the first Todo!";
     
     Todo *secondTodo = [[Todo alloc] init];
-    secondTodo.title = @"First Todo";
+    secondTodo.title = @"Second Todo";
     secondTodo.content = @"This is a neato Todo!";
     
     Todo *thirdTodo = [[Todo alloc] init];
-    thirdTodo.title = @"First Todo";
+    thirdTodo.title = @"Third Todo";
     thirdTodo.content = @"This is another spiffy Todo!";
     
     return @[firstTodo, secondTodo, thirdTodo];
 }
 
-// pragma MARK: UITableViewDataSource methods
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier  isEqual:@"TVDetailViewController"]) {
+        NSIndexPath *index = [self.tableView indexPathForSelectedRow];
+        Todo *selectedTodo = self.allTodos[index.row];
+        
+        TVDetailViewController *destinationVC = segue.destinationViewController;
+        destinationVC.todo = selectedTodo;
+    }
+}
+
+// MARK: UITableViewDataSource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.allTodos.count;
 }
@@ -54,10 +68,17 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.allTodos[indexPath.row].title;
-    cell.detailTextLabel.text = self.allTodos[indexPath.row].content;
+    Todo *todo = self.allTodos[indexPath.row];
+    
+    cell.textLabel.text = todo.title;
+    cell.detailTextLabel.text = todo.content;
     
     return cell;
+}
+
+// MARK UITableViewDelegate methods
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"TVDetailViewController" sender:nil];
 }
 
 @end

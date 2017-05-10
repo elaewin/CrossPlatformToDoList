@@ -20,7 +20,6 @@
 		555C1B381EC233B200FCED35 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1B361EC233B200FCED35 /* Interface.storyboard */; };
 		555C1B3A1EC233B200FCED35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555C1B391EC233B200FCED35 /* Assets.xcassets */; };
 		555C1B411EC233B200FCED35 /* WatchkitTodoList Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 555C1B401EC233B200FCED35 /* WatchkitTodoList Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		555C1B471EC233B200FCED35 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B461EC233B200FCED35 /* InterfaceController.m */; };
 		555C1B4A1EC233B200FCED35 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B491EC233B200FCED35 /* ExtensionDelegate.m */; };
 		555C1B4C1EC233B200FCED35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555C1B4B1EC233B200FCED35 /* Assets.xcassets */; };
 		555C1B501EC233B200FCED35 /* WatchkitTodoList.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 555C1B341EC233B200FCED35 /* WatchkitTodoList.app */; };
@@ -34,6 +33,9 @@
 		555C1B7B1EC249CB00FCED35 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B301EC1430200FCED35 /* Todo.m */; };
 		555C1B7E1EC26DD400FCED35 /* WatchToDoDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B7D1EC26DD400FCED35 /* WatchToDoDetailController.m */; };
 		555C1B811EC28E1C00FCED35 /* HomeInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B801EC28E1C00FCED35 /* HomeInterfaceController.m */; };
+		555C1B841EC2CBE300FCED35 /* TVDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B831EC2CBE300FCED35 /* TVDetailViewController.m */; };
+		555C1B891EC2DCD500FCED35 /* CompletedTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B881EC2DCD500FCED35 /* CompletedTodoViewController.m */; };
+		555C1B8C1EC2DD8500FCED35 /* TodoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B8B1EC2DD8500FCED35 /* TodoDetailViewController.m */; };
 		9DA1A6F50B8260C50AD7B15A /* libPods-CrossPlatformToDoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF37D044505D625DF2DB3DF /* libPods-CrossPlatformToDoList.a */; };
 /* End PBXBuildFile section */
 
@@ -103,8 +105,6 @@
 		555C1B391EC233B200FCED35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555C1B3B1EC233B200FCED35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555C1B401EC233B200FCED35 /* WatchkitTodoList Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchkitTodoList Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		555C1B451EC233B200FCED35 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		555C1B461EC233B200FCED35 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		555C1B481EC233B200FCED35 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		555C1B491EC233B200FCED35 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		555C1B4B1EC233B200FCED35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +124,12 @@
 		555C1B7D1EC26DD400FCED35 /* WatchToDoDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchToDoDetailController.m; sourceTree = "<group>"; };
 		555C1B7F1EC28E1C00FCED35 /* HomeInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInterfaceController.h; sourceTree = "<group>"; };
 		555C1B801EC28E1C00FCED35 /* HomeInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInterfaceController.m; sourceTree = "<group>"; };
+		555C1B821EC2CBE300FCED35 /* TVDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDetailViewController.h; sourceTree = "<group>"; };
+		555C1B831EC2CBE300FCED35 /* TVDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDetailViewController.m; sourceTree = "<group>"; };
+		555C1B871EC2DCD500FCED35 /* CompletedTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedTodoViewController.h; sourceTree = "<group>"; };
+		555C1B881EC2DCD500FCED35 /* CompletedTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTodoViewController.m; sourceTree = "<group>"; };
+		555C1B8A1EC2DD8500FCED35 /* TodoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDetailViewController.h; sourceTree = "<group>"; };
+		555C1B8B1EC2DD8500FCED35 /* TodoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailViewController.m; sourceTree = "<group>"; };
 		7C417EC212983C2A6D47D22B /* Pods-CrossPlatformToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossPlatformToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossPlatformToDoList/Pods-CrossPlatformToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		BAF37D044505D625DF2DB3DF /* libPods-CrossPlatformToDoList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrossPlatformToDoList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,9 +201,9 @@
 			children = (
 				555C1B0D1EC0DD8600FCED35 /* AppDelegate.h */,
 				555C1B0E1EC0DD8600FCED35 /* AppDelegate.m */,
-				555C1B0B1EC0DD8600FCED35 /* main.m */,
-				555C1B1B1EC0DD8700FCED35 /* Info.plist */,
 				555C1B211EC0DFFE00FCED35 /* GoogleService-Info.plist */,
+				555C1B1B1EC0DD8700FCED35 /* Info.plist */,
+				555C1B0B1EC0DD8600FCED35 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,8 +211,8 @@
 		555C1B231EC0EB6D00FCED35 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				555C1B131EC0DD8700FCED35 /* Main.storyboard */,
 				555C1B181EC0DD8700FCED35 /* LaunchScreen.storyboard */,
+				555C1B131EC0DD8700FCED35 /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -214,12 +220,16 @@
 		555C1B271EC0EBED00FCED35 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				555C1B2C1EC10E6300FCED35 /* NewTodoViewController.h */,
-				555C1B2D1EC10E6300FCED35 /* NewTodoViewController.m */,
-				555C1B241EC0EBE300FCED35 /* LoginViewController.h */,
-				555C1B251EC0EBE300FCED35 /* LoginViewController.m */,
+				555C1B871EC2DCD500FCED35 /* CompletedTodoViewController.h */,
+				555C1B881EC2DCD500FCED35 /* CompletedTodoViewController.m */,
 				555C1B281EC0EFB900FCED35 /* HomeViewController.h */,
 				555C1B291EC0EFB900FCED35 /* HomeViewController.m */,
+				555C1B241EC0EBE300FCED35 /* LoginViewController.h */,
+				555C1B251EC0EBE300FCED35 /* LoginViewController.m */,
+				555C1B2C1EC10E6300FCED35 /* NewTodoViewController.h */,
+				555C1B2D1EC10E6300FCED35 /* NewTodoViewController.m */,
+				555C1B8A1EC2DD8500FCED35 /* TodoDetailViewController.h */,
+				555C1B8B1EC2DD8500FCED35 /* TodoDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -246,8 +256,6 @@
 		555C1B441EC233B200FCED35 /* WatchkitTodoList Extension */ = {
 			isa = PBXGroup;
 			children = (
-				555C1B451EC233B200FCED35 /* InterfaceController.h */,
-				555C1B461EC233B200FCED35 /* InterfaceController.m */,
 				555C1B7F1EC28E1C00FCED35 /* HomeInterfaceController.h */,
 				555C1B801EC28E1C00FCED35 /* HomeInterfaceController.m */,
 				555C1B7C1EC26DD400FCED35 /* WatchToDoDetailController.h */,
@@ -265,13 +273,8 @@
 		555C1B621EC246C800FCED35 /* TVTodoList */ = {
 			isa = PBXGroup;
 			children = (
-				555C1B781EC248AF00FCED35 /* TVHomeViewController.h */,
-				555C1B791EC248AF00FCED35 /* TVHomeViewController.m */,
-				555C1B661EC246C800FCED35 /* AppDelegate.h */,
-				555C1B671EC246C800FCED35 /* AppDelegate.m */,
-				555C1B6C1EC246C800FCED35 /* Main.storyboard */,
-				555C1B6F1EC246C800FCED35 /* Assets.xcassets */,
-				555C1B711EC246C800FCED35 /* Info.plist */,
+				555C1B851EC2CC3500FCED35 /* Controller */,
+				555C1B861EC2CC5500FCED35 /* View */,
 				555C1B631EC246C800FCED35 /* Supporting Files */,
 			);
 			path = TVTodoList;
@@ -280,9 +283,32 @@
 		555C1B631EC246C800FCED35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				555C1B6F1EC246C800FCED35 /* Assets.xcassets */,
+				555C1B711EC246C800FCED35 /* Info.plist */,
+				555C1B661EC246C800FCED35 /* AppDelegate.h */,
+				555C1B671EC246C800FCED35 /* AppDelegate.m */,
 				555C1B641EC246C800FCED35 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		555C1B851EC2CC3500FCED35 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				555C1B781EC248AF00FCED35 /* TVHomeViewController.h */,
+				555C1B791EC248AF00FCED35 /* TVHomeViewController.m */,
+				555C1B821EC2CBE300FCED35 /* TVDetailViewController.h */,
+				555C1B831EC2CBE300FCED35 /* TVDetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		555C1B861EC2CC5500FCED35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				555C1B6C1EC246C800FCED35 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		61DC0DAD0CF7A3AB9FB52AD2 /* Pods */ = {
@@ -528,6 +554,8 @@
 				555C1B0F1EC0DD8600FCED35 /* AppDelegate.m in Sources */,
 				555C1B2A1EC0EFB900FCED35 /* HomeViewController.m in Sources */,
 				555C1B2E1EC10E6300FCED35 /* NewTodoViewController.m in Sources */,
+				555C1B8C1EC2DD8500FCED35 /* TodoDetailViewController.m in Sources */,
+				555C1B891EC2DCD500FCED35 /* CompletedTodoViewController.m in Sources */,
 				555C1B0C1EC0DD8600FCED35 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,7 +566,6 @@
 			files = (
 				555C1B811EC28E1C00FCED35 /* HomeInterfaceController.m in Sources */,
 				555C1B4A1EC233B200FCED35 /* ExtensionDelegate.m in Sources */,
-				555C1B471EC233B200FCED35 /* InterfaceController.m in Sources */,
 				555C1B5B1EC23F4F00FCED35 /* TodoRowController.m in Sources */,
 				555C1B7E1EC26DD400FCED35 /* WatchToDoDetailController.m in Sources */,
 				555C1B5C1EC2427200FCED35 /* Todo.m in Sources */,
@@ -552,6 +579,7 @@
 				555C1B681EC246C800FCED35 /* AppDelegate.m in Sources */,
 				555C1B651EC246C800FCED35 /* main.m in Sources */,
 				555C1B7A1EC248AF00FCED35 /* TVHomeViewController.m in Sources */,
+				555C1B841EC2CBE300FCED35 /* TVDetailViewController.m in Sources */,
 				555C1B7B1EC249CB00FCED35 /* Todo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

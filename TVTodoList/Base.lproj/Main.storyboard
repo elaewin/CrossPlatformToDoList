@@ -64,11 +64,53 @@
                     <navigationItem key="navigationItem" title="TODO LIST" id="7gQ-fd-v05"/>
                     <connections>
                         <outlet property="tableView" destination="he1-T7-L4H" id="PCY-ab-ag4"/>
+                        <segue destination="8uT-Ir-X0K" kind="show" identifier="TVDetailViewController" id="Cwr-6i-pYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="75"/>
+            <point key="canvasLocation" x="2201" y="147"/>
+        </scene>
+        <!--TODO DETAILS-->
+        <scene sceneID="bmT-ai-L04">
+            <objects>
+                <viewController storyboardIdentifier="TVDetailViewController" title="TODO DETAILS" automaticallyAdjustsScrollViewInsets="NO" id="8uT-Ir-X0K" customClass="TVDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kcV-W3-urc"/>
+                        <viewControllerLayoutGuide type="bottom" id="MYw-Xp-0RU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PQe-xp-ljx">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGa-fo-hZA">
+                                <rect key="frame" x="150" y="295" width="90" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-Yg-Ggr">
+                                <rect key="frame" x="150" y="393" width="169" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XsQ-Yg-Ggr" firstAttribute="leading" secondItem="oGa-fo-hZA" secondAttribute="leading" id="7Ea-cV-3iA"/>
+                            <constraint firstItem="oGa-fo-hZA" firstAttribute="leading" secondItem="PQe-xp-ljx" secondAttribute="leading" constant="150" id="D21-0H-Tq5"/>
+                            <constraint firstItem="XsQ-Yg-Ggr" firstAttribute="top" secondItem="oGa-fo-hZA" secondAttribute="bottom" constant="40" id="bBa-Yh-wXC"/>
+                            <constraint firstItem="oGa-fo-hZA" firstAttribute="top" secondItem="kcV-W3-urc" secondAttribute="bottom" constant="150" id="qYk-An-Q6Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentlabel" destination="XsQ-Yg-Ggr" id="Z6U-Kz-gfe"/>
+                        <outlet property="titleLabel" destination="oGa-fo-hZA" id="NBn-vk-vYE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v3L-DQ-MP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4777" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b2w-fI-4ne">

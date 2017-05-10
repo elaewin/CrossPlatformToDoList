@@ -13,7 +13,7 @@
 @import FirebaseDatabase;
 
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property(strong, nonatomic) FIRDatabaseReference *userReference;
 @property(strong, nonatomic) FIRUser *currentUser;
