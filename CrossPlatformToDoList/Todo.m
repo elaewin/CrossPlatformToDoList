@@ -21,13 +21,14 @@
     return self;
 }
 
--(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate andEmail:(NSString *)email {
+-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate andEmail:(NSString *)email createdOn:(NSString *)created {
     self = [super init];
     
     if (self) {
         _title = title;
         _content = content;
-        _dueDate = [self formatDate:dueDate];
+        _created = created;
+        _dueDate = dueDate;
         _user = email;
     }
     return self;
@@ -39,8 +40,8 @@
     if (self) {
         _title = jsonDictionary[@"title"];
         _content = jsonDictionary[@"content"];
-        _created = [self formatDate:[NSDate date]];
-        _isComplete = @0;
+        _created = jsonDictionary[@"created"];
+        _isComplete = jsonDictionary[@"isComplete"];
         _user = jsonDictionary[@"user"];
     }
     

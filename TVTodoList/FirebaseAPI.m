@@ -32,7 +32,7 @@
             NSArray *userTodos = [userTodosDictionary[@"todos"] allValues];
 //            NSLog(@"USER TODOS: %@", userTodos);
             for (NSDictionary *todoDictionary in userTodos) {
-                if (todoDictionary[@"user"] == email) {
+                if ([todoDictionary[@"user"] isEqualToString:email]) {
                     Todo *newTodo = [[Todo alloc] initWithDictionary:todoDictionary];
                     [allTodos addObject:newTodo];
                 }
@@ -40,7 +40,10 @@
         }
         
         if (completion) {
-            completion(allTodos);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(allTodos);
+            });
         }
         
     }] resume];

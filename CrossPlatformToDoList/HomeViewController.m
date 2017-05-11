@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "LoginViewController.h"
+#import "TodoFirebaseAuth.h"
 
 @import FirebaseAuth;
 @import FirebaseDatabase;
@@ -19,6 +20,7 @@
 @property(strong, nonatomic) FIRUser *currentUser;
 
 @property(nonatomic) FIRDatabaseHandle allTodosHandler; //event listener works thru this.
+@property(strong, nonatomic) NSArray<Todo *> *allTodos;
 
 @end
 
@@ -41,7 +43,7 @@
         [self presentViewController:loginVC animated:YES completion:nil];
     } else {
         [self setupFirebase];
-        [self startMonitoringTodoUpdates];
+        [[TodoFirebaseAuth shared] startMonitoringTodoUpdatesFor:@0];
     }
 }
 
@@ -64,22 +66,43 @@
 
 -(void)startMonitoringTodoUpdates {
     
+    __weak typeof(self) bruce = self;
     self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
+        __strong typeof(bruce) hulk = bruce;
         NSMutableArray *allTodos = [[NSMutableArray alloc] init];
         
         for (FIRDataSnapshot *child in snapshot.children) {
-            NSDictionary *todoData = child.value;
+            NSMutableDictionary *todoData = child.value;
             
-            Todo *todo = [[Todo alloc] ];
-            todo.title = todoData[@"title"];
-            todo.content = todoData[@"content"];
+            if ([todoData[@"user"] isEqual:nil]) {
+                todoData[@"user"] = hulk.currentUser.email;
+            }
+            if ([todoData[@"completed"] isEqual:nil]) {
+                todoData[@"completed"] = @0;
+            }
             
-            NSLog(@"Todo Title: %@ - Content: %@", todo.title, todo.content);
-            [allTodos addObject:todo];
+            if ([todoData[@"completed"] isEqual:@0]) {
+                Todo *todo = [[Todo alloc] initWithDictionary:todoData];
+                NSLog(@"Todo Title: %@ - Content: %@ - User: %@", todo.title, todo.content, todo.user);
+                [allTodos addObject:todo];
+            }
         }
+        self.allTodos = allTodos.copy;
     }];
 }
+
+// pragma MARK: UITableViewDataSource methods
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.allTodos.count;
+}
+
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
+
+// pragma MARK: UITableViewDelegate methods
 
 // pragma MARK: Actions
 
@@ -88,8 +111,9 @@
 
 - (IBAction)logoutButtonPressed:(id)sender {
     // sign OUT process is these 2 lines:
-        NSError *signOutError;
-        [[FIRAuth auth] signOut:&signOutError];
+    NSError *signOutError;
+    [[FIRAuth auth] signOut:&signOutError];
+    [self checkUserStatus];
 }
 
 @end

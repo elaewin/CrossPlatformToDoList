@@ -37,9 +37,9 @@
         
         if (allTodos.count == 0) {
             
-            UIAlertController *alertController = [[UIAlertController alloc] init];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No Results" message:@"No Todos were found for that email address." preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *noneFoundAction = [UIAlertAction actionWithTitle:@"No Todos found for that email address!" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *noneFoundAction = [UIAlertAction actionWithTitle:@"Go Back" style:UIAlertActionStyleCancel handler:nil];
             
             [alertController addAction:noneFoundAction];
             
