@@ -31,7 +31,7 @@
         
         //reference to specific db for the user that is logged in. This line MUST come after the line getting the user id, otherwise child will be nil.
         _userReference = [[databaseReference child:@"users"]child:_currentUser.uid];
-        NSLog(@"USER REFERENCE: %@", _userReference);
+//        NSLog(@"USER REFERENCE: %@", _userReference);
     }
     return self;
 }

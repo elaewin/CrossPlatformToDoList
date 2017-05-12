@@ -52,12 +52,7 @@
             
             [self.navigationController pushViewController:homeVC animated:YES];
         }
-        
-        
-        
     }];
-    
-    
 }
 
 @end

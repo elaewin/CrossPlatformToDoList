@@ -21,15 +21,15 @@
     return self;
 }
 
--(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andDueDate:(NSDate *)dueDate andEmail:(NSString *)email createdOn:(NSString *)created {
+-(instancetype)initWithTitle:(NSString *)title withContent:(NSString *)content andEmail:(NSString *)email andDueDate:(NSDate *)dueDate createdOn:(NSString *)created {
     self = [super init];
     
     if (self) {
         _title = title;
         _content = content;
-        _created = created;
-        _dueDate = dueDate;
         _user = email;
+        _dueDate = [self formatDate:dueDate];
+        _created = created;
     }
     return self;
 }
@@ -42,6 +42,7 @@
         _content = jsonDictionary[@"content"];
         _created = jsonDictionary[@"created"];
         _isComplete = jsonDictionary[@"isComplete"];
+        _dueDate = jsonDictionary[@"dueDate"];
         _user = jsonDictionary[@"user"];
     }
     
@@ -52,7 +53,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     [formatter setLocale:locale];
-    [formatter setDateFormat:@"MMM d, yyyy"];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
     return [formatter stringFromDate:date];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "CompletedTodoViewController.h"
+#import "TodoFirebaseAuth.h"
 #import "Todo.h"
 
 @interface CompletedTodoViewController ()
@@ -17,19 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[TodoFirebaseAuth shared] startMonitoringTodoUpdatesFor:@1];
     // Do any additional setup after loading the view.
 }
 
--(void)setupFirebase {
-    
-    // reference to ENTIRE database
-    FIRDatabaseReference *databaseReference = [[FIRDatabase database] reference];
-    self.currentUser = [[FIRAuth auth] currentUser]; //get user id
-    
-    //reference to specific db for the user that is logged in. This line MUST come after the line getting the user id, otherwise child will be nil.
-    self.userReference = [[databaseReference child:@"users"]child:self.currentUser.uid];
-    NSLog(@"USER REFERENCE: %@", self.userReference);
-}
+//-(void)setupFirebase {
+//    
+//    // reference to ENTIRE database
+//    FIRDatabaseReference *databaseReference = [[FIRDatabase database] reference];
+//    self.currentUser = [[FIRAuth auth] currentUser]; //get user id
+//    
+//    //reference to specific db for the user that is logged in. This line MUST come after the line getting the user id, otherwise child will be nil.
+//    self.userReference = [[databaseReference child:@"users"]child:self.currentUser.uid];
+////    NSLog(@"USER REFERENCE: %@", self.userReference);
+//}
 
 -(void)startMonitoringTodoUpdates {
     

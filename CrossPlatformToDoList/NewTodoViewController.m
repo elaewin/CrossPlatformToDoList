@@ -15,8 +15,8 @@
 @interface NewTodoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *todoTitleTextField;
-
 @property (weak, nonatomic) IBOutlet UITextField *todoContentTextField;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dueDatePicker;
 
 @end
 
@@ -24,13 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dueDatePicker.minimumDate = [NSDate date];
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)addButtonPressed:(id)sender {
     // Get DB reference, then crawl down the tree to the level we want (users)
 
-    
     //This creates a new child of todos that we can now set values on.
     FIRDatabaseReference *newTodoReference = [[[[TodoFirebaseAuth shared] userReference] child:@"todos"] childByAutoId];
     
@@ -39,9 +40,16 @@
     [[newTodoReference child:@"content"] setValue:self.todoContentTextField.text];
     [[newTodoReference child:@"user"] setValue:[[TodoFirebaseAuth shared] currentUser].email];
     [[newTodoReference child:@"isComplete"] setValue:@0];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [[newTodoReference child:@"created"] setValue:[formatter stringFromDate:[NSDate date]]];
+    [[newTodoReference child:@"created"] setValue:[self formatDate:[NSDate date]]];
+    [[newTodoReference child:@"dueDate"] setValue:[self formatDate:self.dueDatePicker.date]];
+}
+
+-(NSString *)formatDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    NSLocale *locale = [NSLocale currentLocale];
+    [formatter setLocale:locale];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    return [formatter stringFromDate:date];
 }
 
 

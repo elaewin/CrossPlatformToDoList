@@ -61,7 +61,7 @@
     
     //reference to specific db for the user that is logged in. This line MUST come after the line getting the user id, otherwise child will be nil.
     self.userReference = [[databaseReference child:@"users"]child:self.currentUser.uid];
-    NSLog(@"USER REFERENCE: %@", self.userReference);
+//    NSLog(@"USER REFERENCE: %@", self.userReference);
 }
 
 -(void)startMonitoringTodoUpdates {
@@ -80,6 +80,10 @@
             }
             if ([todoData[@"completed"] isEqual:nil]) {
                 todoData[@"completed"] = @0;
+            }
+            
+            if ([todoData[@"created"] isEqual:nil]) {
+                todoData[@"created"] = @"Jan 1, 12:00 am";
             }
             
             if ([todoData[@"completed"] isEqual:@0]) {
