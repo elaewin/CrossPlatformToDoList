@@ -34,6 +34,8 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.estimatedRowHeight = 100;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     UINib *nib = [UINib nibWithNibName:@"TodoTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TodoTableViewCell"];
@@ -131,8 +133,11 @@
         cell = [[TodoTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TodoTableViewCell"];
     }
     
-    cell.todo = [self.allTodos objectAtIndex:indexPath.row];
+    Todo *todo = [self.allTodos objectAtIndex:indexPath.row];
     
+    cell.titleLabel.text = todo.title;
+    cell.contentLabel.text = todo.content;
+    cell.dueDateLabel.text = [NSString stringWithFormat:@"Due: %@", todo.dueDate];
     
     return cell;
 }
