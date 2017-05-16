@@ -42,6 +42,10 @@
     [[newTodoReference child:@"isComplete"] setValue:@0];
     [[newTodoReference child:@"created"] setValue:[self formatDate:[NSDate date]]];
     [[newTodoReference child:@"dueDate"] setValue:[self formatDate:self.dueDatePicker.date]];
+    
+    self.dueDatePicker.date = [NSDate date];
+    self.todoTitleTextField.text = @"";
+    self.todoContentTextField.text = @"";
 }
 
 -(NSString *)formatDate:(NSDate *)date {

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TO DO LIST-->
+        <!--TODO LIST-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" title="TO DO LIST" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="TODO LIST" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -31,7 +31,7 @@
                                     <segue destination="HcD-Jv-cys" kind="embed" id="4lM-7I-Qda"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EWg-0m-LfG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EWg-0m-LfG">
                                 <rect key="frame" x="-0.5" y="439" width="375" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -47,7 +47,7 @@
                             <constraint firstItem="EWg-0m-LfG" firstAttribute="top" secondItem="fxT-dl-zv6" secondAttribute="bottom" id="zMs-S2-ngs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hhf-fR-Gxk">
+                    <navigationItem key="navigationItem" title="THINGS TO DO" id="hhf-fR-Gxk">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="VPl-Pc-t9i">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="inm-2f-WVS"/>
@@ -59,6 +59,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="EWg-0m-LfG" id="DvK-ql-sRd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,7 +202,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tHs-3f-GNa"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="S94-gc-bmN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPU-c1-S9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,7 +212,7 @@
         <!--COMPLETED TODOS-->
         <scene sceneID="uQ0-8F-be3">
             <objects>
-                <viewController title="COMPLETED TODOS" id="rGe-y9-Ukv" sceneMemberID="viewController">
+                <viewController title="COMPLETED TODOS" id="rGe-y9-Ukv" customClass="CompletedTodoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d1f-1a-Tik"/>
                         <viewControllerLayoutGuide type="bottom" id="m2O-FX-cze"/>
@@ -217,13 +220,28 @@
                     <view key="view" contentMode="scaleToFill" id="nOB-ft-oBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JcW-Mo-1Re">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JcW-Mo-1Re" firstAttribute="bottom" secondItem="m2O-FX-cze" secondAttribute="top" id="0qe-o1-qKR"/>
+                            <constraint firstItem="JcW-Mo-1Re" firstAttribute="leading" secondItem="nOB-ft-oBh" secondAttribute="leading" id="TcU-EI-r5G"/>
+                            <constraint firstAttribute="trailing" secondItem="JcW-Mo-1Re" secondAttribute="trailing" id="UY7-Zg-KWR"/>
+                            <constraint firstItem="JcW-Mo-1Re" firstAttribute="top" secondItem="nOB-ft-oBh" secondAttribute="top" id="r8u-WY-2pG"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Jvf-tX-rni"/>
+                    <navigationItem key="navigationItem" title="COMPLETED TODOS" id="JSz-Vf-cnx"/>
+                    <connections>
+                        <outlet property="tableView" destination="JcW-Mo-1Re" id="MHy-fq-1Mf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EA-IK-qeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="764"/>
+            <point key="canvasLocation" x="1734" y="741"/>
         </scene>
         <!--New Todo View Controller-->
         <scene sceneID="WuR-Gb-Ylc">
@@ -324,12 +342,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="QN5-Ru-bF9" kind="relationship" relationship="viewControllers" id="JnU-on-4nu"/>
-                        <segue destination="rGe-y9-Ukv" kind="relationship" relationship="viewControllers" id="hfB-b9-XoZ"/>
+                        <segue destination="tJg-xT-Jql" kind="relationship" relationship="viewControllers" id="2EL-dy-vEP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kra-FS-sDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="200.80000000000001" y="51.724137931034484"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="XR4-63-I8C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tJg-xT-Jql" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Jvf-tX-rni"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Vg-P5-Y9K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rGe-y9-Ukv" kind="relationship" relationship="rootViewController" id="Z7f-GS-c6O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kst-AD-HaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="741"/>
         </scene>
     </scenes>
 </document>

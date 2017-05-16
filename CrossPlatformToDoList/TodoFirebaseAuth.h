@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Todo.h"
+
 @import Firebase;
 @import FirebaseAuth;
+
+typedef void(^AllTodosCompletion)(NSArray<Todo *> *allTodos);
 
 @interface TodoFirebaseAuth : NSObject
 
@@ -17,6 +21,6 @@
 @property(nonatomic) FIRDatabaseHandle allTodosHandler;
 
 +(instancetype)shared;
--(void)startMonitoringTodoUpdatesFor:(NSNumber *)completionStatus;
+-(void)startMonitoringTodoUpdatesFor:(NSNumber *)isCompleteStatus withCompletion:(AllTodosCompletion)completion;
 
 @end

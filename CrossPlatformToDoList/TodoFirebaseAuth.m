@@ -7,7 +7,6 @@
 //
 
 #import "TodoFirebaseAuth.h"
-#import "Todo.h"
 
 @implementation TodoFirebaseAuth
 
@@ -36,7 +35,7 @@
     return self;
 }
 
--(void)startMonitoringTodoUpdatesFor:(NSNumber *)completionStatus {
+-(void)startMonitoringTodoUpdatesFor:(NSNumber *)isCompleteStatus withCompletion:(AllTodosCompletion)completion {
     
     __weak typeof(self) bruce = self;
     self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -50,16 +49,22 @@
             if ([todoData[@"user"] isEqual:nil]) {
                 todoData[@"user"] = hulk.currentUser.email;
             }
-            if ([todoData[@"completed"] isEqual:nil]) {
-                todoData[@"completed"] = @0;
+            if ([todoData[@"isComplete"] isEqual:nil]) {
+                todoData[@"isComplete"] = @0;
             }
             
-            if ([todoData[@"completed"] isEqual:completionStatus]) {
+            if ([todoData[@"isComplete"] isEqual:isCompleteStatus]) {
                 Todo *todo = [[Todo alloc] initWithDictionary:todoData];
                 NSLog(@"Todo Title: %@ - Content: %@ - User: %@", todo.title, todo.content, todo.user);
                 [allTodos addObject:todo];
             }
             
+        }
+        if (completion) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(allTodos);
+            });
         }
     }];
 }

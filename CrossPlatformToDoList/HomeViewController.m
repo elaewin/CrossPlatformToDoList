@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "TodoFirebaseAuth.h"
+#import "TodoTableViewCell.h"
 
 @import FirebaseAuth;
 @import FirebaseDatabase;
@@ -21,6 +22,7 @@
 
 @property(nonatomic) FIRDatabaseHandle allTodosHandler; //event listener works thru this.
 @property(strong, nonatomic) NSArray<Todo *> *allTodos;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -29,11 +31,18 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"TO DO LIST";
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    UINib *nib = [UINib nibWithNibName:@"TodoTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TodoTableViewCell"];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self checkUserStatus];
+    [self.tableView reloadData];
 }
 
 // pragma MARK: Helper Methods
@@ -42,8 +51,8 @@
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self presentViewController:loginVC animated:YES completion:nil];
     } else {
-        [self setupFirebase];
-        [[TodoFirebaseAuth shared] startMonitoringTodoUpdatesFor:@0];
+//        [self setupFirebase];
+        [self startMonitoringTodoUpdates];
     }
 }
 
@@ -65,46 +74,68 @@
 }
 
 -(void)startMonitoringTodoUpdates {
-    
+
     __weak typeof(self) bruce = self;
-    self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[TodoFirebaseAuth shared] startMonitoringTodoUpdatesFor:@0 withCompletion:^(NSArray<Todo *> *allTodos) {
         
         __strong typeof(bruce) hulk = bruce;
-        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+        hulk.allTodos = allTodos;
         
-        for (FIRDataSnapshot *child in snapshot.children) {
-            NSMutableDictionary *todoData = child.value;
-            
-            if ([todoData[@"user"] isEqual:nil]) {
-                todoData[@"user"] = hulk.currentUser.email;
-            }
-            if ([todoData[@"completed"] isEqual:nil]) {
-                todoData[@"completed"] = @0;
-            }
-            
-            if ([todoData[@"created"] isEqual:nil]) {
-                todoData[@"created"] = @"Jan 1, 12:00 am";
-            }
-            
-            if ([todoData[@"completed"] isEqual:@0]) {
-                Todo *todo = [[Todo alloc] initWithDictionary:todoData];
-                NSLog(@"Todo Title: %@ - Content: %@ - User: %@", todo.title, todo.content, todo.user);
-                [allTodos addObject:todo];
-            }
-        }
-        self.allTodos = allTodos.copy;
     }];
+    [self.tableView reloadData];
 }
+
+//    __weak typeof(self) bruce = self;
+//    self.allTodosHandler = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//        
+//        __strong typeof(bruce) hulk = bruce;
+//        NSMutableArray *allTodos = [[NSMutableArray alloc] init];
+//        
+//        for (FIRDataSnapshot *child in snapshot.children) {
+//            NSMutableDictionary *todoData = child.value;
+//            
+//            if ([todoData[@"user"] isEqual:nil]) {
+//                todoData[@"user"] = hulk.currentUser.email;
+//            }
+//            if ([todoData[@"isComplete"] isEqual:nil]) {
+//                todoData[@"isComplete"] = @0;
+//            }
+//            
+//            if ([todoData[@"created"] isEqual:nil]) {
+//                todoData[@"created"] = @"Jan 1, 12:00 am";
+//            }
+//            
+//            if ([todoData[@"isComplete"] isEqual:@0]) {
+//                Todo *todo = [[Todo alloc] initWithDictionary:todoData];
+//                NSLog(@"Todo Title: %@ - Content: %@ - User: %@", todo.title, todo.content, todo.user);
+//                [allTodos addObject:todo];
+//            }
+//        }
+//        self.allTodos = allTodos.copy;
+//    }];
+    
+
 
 // pragma MARK: UITableViewDataSource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"---NUMBER OF TODOS: %lu", (unsigned long)self.allTodos.count);
     return self.allTodos.count;
 }
 
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    TodoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TodoTableViewCell" forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[TodoTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TodoTableViewCell"];
+    }
+    
+    cell.todo = [self.allTodos objectAtIndex:indexPath.row];
+    
+    
+    return cell;
+}
 
 // pragma MARK: UITableViewDelegate methods
 

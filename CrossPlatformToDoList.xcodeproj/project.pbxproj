@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		5531060E1EC3C82E00A99865 /* TVSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531060D1EC3C82E00A99865 /* TVSignInViewController.m */; };
 		553106111EC3E82300A99865 /* TodoFirebaseAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 553106101EC3E82300A99865 /* TodoFirebaseAuth.m */; };
-		553106141EC51B1800A99865 /* TodoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553106131EC51B1800A99865 /* TodoTableViewCell.m */; };
+		553106231ECA508D00A99865 /* TodoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553106211ECA508D00A99865 /* TodoTableViewCell.m */; };
+		553106241ECA508D00A99865 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553106221ECA508D00A99865 /* TodoTableViewCell.xib */; };
 		555C1B0C1EC0DD8600FCED35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B0B1EC0DD8600FCED35 /* main.m */; };
 		555C1B0F1EC0DD8600FCED35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C1B0E1EC0DD8600FCED35 /* AppDelegate.m */; };
 		555C1B151EC0DD8700FCED35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1B131EC0DD8700FCED35 /* Main.storyboard */; };
@@ -91,8 +92,9 @@
 		5531060D1EC3C82E00A99865 /* TVSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVSignInViewController.m; sourceTree = "<group>"; };
 		5531060F1EC3E82300A99865 /* TodoFirebaseAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoFirebaseAuth.h; sourceTree = "<group>"; };
 		553106101EC3E82300A99865 /* TodoFirebaseAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoFirebaseAuth.m; sourceTree = "<group>"; };
-		553106121EC51B1800A99865 /* TodoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTableViewCell.h; sourceTree = "<group>"; };
-		553106131EC51B1800A99865 /* TodoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTableViewCell.m; sourceTree = "<group>"; };
+		553106201ECA508D00A99865 /* TodoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTableViewCell.h; sourceTree = "<group>"; };
+		553106211ECA508D00A99865 /* TodoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTableViewCell.m; sourceTree = "<group>"; };
+		553106221ECA508D00A99865 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		555C1B071EC0DD8600FCED35 /* CrossPlatformToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossPlatformToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555C1B0B1EC0DD8600FCED35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		555C1B0D1EC0DD8600FCED35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -224,8 +226,9 @@
 		555C1B231EC0EB6D00FCED35 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				553106121EC51B1800A99865 /* TodoTableViewCell.h */,
-				553106131EC51B1800A99865 /* TodoTableViewCell.m */,
+				553106201ECA508D00A99865 /* TodoTableViewCell.h */,
+				553106211ECA508D00A99865 /* TodoTableViewCell.m */,
+				553106221ECA508D00A99865 /* TodoTableViewCell.xib */,
 				555C1B181EC0DD8700FCED35 /* LaunchScreen.storyboard */,
 				555C1B131EC0DD8700FCED35 /* Main.storyboard */,
 			);
@@ -494,6 +497,7 @@
 				555C1B1A1EC0DD8700FCED35 /* LaunchScreen.storyboard in Resources */,
 				555C1B221EC0DFFE00FCED35 /* GoogleService-Info.plist in Resources */,
 				555C1B171EC0DD8700FCED35 /* Assets.xcassets in Resources */,
+				553106241ECA508D00A99865 /* TodoTableViewCell.xib in Resources */,
 				555C1B151EC0DD8700FCED35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,7 +590,7 @@
 				555C1B2E1EC10E6300FCED35 /* NewTodoViewController.m in Sources */,
 				555C1B8C1EC2DD8500FCED35 /* TodoDetailViewController.m in Sources */,
 				555C1B891EC2DCD500FCED35 /* CompletedTodoViewController.m in Sources */,
-				553106141EC51B1800A99865 /* TodoTableViewCell.m in Sources */,
+				553106231ECA508D00A99865 /* TodoTableViewCell.m in Sources */,
 				553106111EC3E82300A99865 /* TodoFirebaseAuth.m in Sources */,
 				555C1B0C1EC0DD8600FCED35 /* main.m in Sources */,
 			);
